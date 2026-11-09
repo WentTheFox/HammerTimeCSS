@@ -1,0 +1,2 @@
+# Fails the commit when a staged file is not formatted, fix it with `pnpm format`
+git diff --cached --name-only --diff-filter=ACMR -z | xargs -0 -r pnpm exec prettier --check --ignore-unknown
