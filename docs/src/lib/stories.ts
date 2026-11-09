@@ -259,4 +259,10 @@ ${['Section one', 'Section two'].map(title => `  <section class="card-forms-sect
     <div class="form-control-wrap"><div class="form-control"><label class="form-control-label" for="card-forms-${title.split(' ')[1]}">Field</label><input id="card-forms-${title.split(' ')[1]}" class="input-field full-width" type="text"></div></div>
   </section>`).join('\n')}
 </div>` },
+  { id: 'content', title: 'Content container', description: 'Centers its content up to a maximum width and spaces the direct children of .content apart. Inside this docs page the max width is rarely reached.', html: `<div class="content-container">
+  <div class="content">
+    <p>First block.</p>
+    <p>Second block, spaced from the first.</p>
+  </div>
+</div>` },
 ];
