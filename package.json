@@ -52,6 +52,7 @@
   ],
   "scripts": {
     "build": "pnpm build:css && pnpm build:static",
+    "test": "playwright test",
     "build:css": "sass --load-path=node_modules --no-source-map scss/builds/css.scss dist/hammertime.css && sass --load-path=node_modules --no-source-map --style=compressed scss/builds/css.scss dist/hammertime.min.css",
     "build:static": "sass --load-path=node_modules --no-source-map scss/builds/static.scss dist/hammertime.static.css && sass --load-path=node_modules --no-source-map --style=compressed scss/builds/static.scss dist/hammertime.static.min.css",
     "commitlint": "commitlint --edit",
@@ -61,10 +62,11 @@
     "the-new-css-reset": "^1.11.3"
   },
   "devDependencies": {
-    "sass": "^1.105.1",
     "@commitlint/cli": "^21.2.0",
     "@commitlint/config-conventional": "^21.2.0",
-    "husky": "^9.1.7"
+    "@playwright/test": "^1.65.0",
+    "husky": "^9.1.7",
+    "sass": "^1.105.1"
   },
   "engines": {
     "node": ">=24"
