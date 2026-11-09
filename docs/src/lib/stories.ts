@@ -229,4 +229,5 @@ ${[24, 48, 96].map(size => `  <img class="avatar" style="--size: ${size}px" alt=
 <input class="input-field" type="text" placeholder="Placeholder" aria-label="Placeholder input">
 <input class="input-field" type="text" value="Disabled" aria-label="Disabled input" disabled>
 <input class="input-field" type="color" value="#5865f2" aria-label="Colour input">` },
+  { id: 'code-span', title: 'Code span', description: 'Inline code. .base-font keeps the surrounding font, .small shrinks it.', html: `<p>Regular <code class="code-span">code-span</code>, <code class="code-span base-font">base-font</code> and <code class="code-span small">small</code> variants.</p>` },
 ];
