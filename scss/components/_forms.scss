@@ -228,8 +228,8 @@
 }
 
 // The global `* { z-index }` makes flex/grid item ancestors of a combobox stacking contexts that trap the
-// suggestion list below their later siblings, `.has-combobox` is the opt-in fix for wrappers other than the form control wrap
-.form-control-wrap:has(.form-control-combobox), .form-control-combobox, .has-combobox {
+// suggestion list below their later siblings, put `.has-combobox` on every such ancestor, including `.form-control-wrap`
+.form-control-combobox, .has-combobox {
   z-index: unset;
 }
 
