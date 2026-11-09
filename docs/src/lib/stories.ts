@@ -146,6 +146,21 @@ ${comboboxItem('America/Argentina/Buenos_Aires (Argentina Standard Time)', ' add
   </div>
 </div>`;
 
+const comboboxStacking = (fixed: boolean, set: IconSet = 'fontawesome') => `<div style="display: flex; flex-flow: column nowrap; gap: .5rem">
+  <div${fixed ? ' style="z-index: unset"' : ''}>
+    <div class="form-control-select form-control-combobox allow-typing suggestions-open has-suggestions full-width">
+      <input class="form-select-input input-field" type="text" role="combobox" aria-expanded="true" aria-label="${fixed ? 'Fixed' : 'Broken'} combobox" value="${fixed ? 'Fixed' : 'Broken'}">
+      <span class="form-select-icon">${icon(set, 'chevron-down')}</span>
+      <div class="combobox-suggestions" role="listbox">
+${comboboxItem('First suggestion')}
+${comboboxItem('Second suggestion')}
+${comboboxItem('Third suggestion')}
+      </div>
+    </div>
+  </div>
+  <div><input class="input-field full-width" type="text" aria-label="Following field" value="Following field"></div>
+</div>`;
+
 const badgeColors = [undefined, 'green', 'blue', 'cyan', 'purple', 'red', 'yellow', 'muted'];
 const badgeGroup = (prefix?: string, suffix?: string) => `<span class="badge-group">
 ${badgeColors.map(color => {
@@ -174,6 +189,13 @@ export const stories: Story[] = [
     "The suggestion list is absolutely positioned under the control and overlays what follows it, so leave room for it in your layout. Matching items (those containing a <code class=\"code-span\">&lt;mark&gt;</code>) are sorted before the rest.",
     "<code class=\"code-span\">.allow-typing</code> is what makes the input editable-looking: without it the input gets a default cursor and no text selection. Put <code class=\"code-span\">.combobox-suggestion-header-overlay</code> on a header to keep it sticky while the list scrolls.",
     "Addons: <code class=\"code-span\">.addon-mode-dynamic.label-truncated</code> on an item moves the addon into the corner on hover to give a truncated label the full width. Your script sets <code class=\"code-span\">.label-truncated</code> when it detects the label overflowing, the last item in the demo has it set.",
+  ] },
+  { id: 'combobox-stacking', title: 'Forms: combobox stacking', description: 'The suggestion list can render underneath the elements that follow the combobox. The framework applies z-index: 2 to every element (* { z-index }), which only matters for flex and grid items and positioned elements, but those then form a stacking context. The list (z-index 9) is trapped inside the context of the flex or grid item that contains the combobox, and the next item, with the same z-index and a later place in the DOM, paints over it. Left: a combobox inside a plain flex item. Right: the same with z-index: unset on that item.', html: `<div class="docs-playground-grid">
+${comboboxStacking(false)}
+${comboboxStacking(true)}
+</div>`, notes: [
+    "Fix: every flex or grid item that is an ancestor of the combobox, up to the first one that is not stacked against its siblings, needs <code class=\"code-span\">z-index: unset</code> (or a z-index above its following siblings, such as <code class=\"code-span\">var(--ht-z-index-combobox)</code>). The framework does this for <code class=\"code-span\">.form-control-wrap</code> items that contain a <code class=\"code-span\">.form-control-combobox</code> and for the combobox itself, via <code class=\"code-span\">:has()</code>. Your own wrappers are not covered.",
+    "Other things that create a stacking context on an ancestor do the same: <code class=\"code-span\">opacity</code> below 1 (the <code class=\"code-span\">.disabled</code> wrapper has it), <code class=\"code-span\">transform</code>, <code class=\"code-span\">filter</code>, <code class=\"code-span\">isolation: isolate</code> and <code class=\"code-span\">overflow</code> clipping, which also cuts the list off. Check the ancestors in dev tools if the list is hidden.",
   ] },
   { id: 'forms-readonly', title: 'Forms: readonly', description: 'The same controls with the readonly attribute.', html: formFields('readonly') },
   { id: 'forms-disabled', title: 'Forms: disabled', description: 'The same controls disabled.', html: formFields('disabled') },
