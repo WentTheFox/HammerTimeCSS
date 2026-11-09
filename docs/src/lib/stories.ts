@@ -252,4 +252,5 @@ ${[24, 48, 96].map(size => `  <img class="avatar" style="--size: ${size}px" alt=
     <p>${lorem}</p>
   </div>
 </div>`, notes: ["The demo overrides <code class=\"code-span\">position</code> to keep the popup in the flow, a real one is placed by your script or anchored."] },
+  { id: 'loading-indicator', title: 'Loading indicator', description: 'An animated SVG clock, sized by its width and height and coloured by the current text colour. Also used inside the loading buttons.', html: `<div class="button-group separated">${[1, 2, 4].map(em => loadingIndicator.replace('width="1em" height="1em"', `width="${em}em" height="${em}em"`)).join('')}</div>` },
 ];
