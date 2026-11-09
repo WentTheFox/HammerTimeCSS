@@ -52,3 +52,9 @@ body.docs-gradient::before {
 }
 :root[dir="rtl"] body.docs-gradient { --docs-gradient-angle: calc(-1 * var(--ht-value-bg-gradient-angle)); }
 @media print { body.docs-gradient::before { display: none; } }
+
+/* Syntax highlighting: Shiki emits both palettes as variables, pick one to follow the docs theme switch */
+.astro-code span { color: var(--shiki-light); }
+html[data-theme="dark"] .astro-code span { color: var(--shiki-dark); }
+@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .astro-code span { color: var(--shiki-dark); } }
+.docs-source.astro-code { tab-size: 2; }
