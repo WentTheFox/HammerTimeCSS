@@ -220,4 +220,7 @@ export const stories: Story[] = [
   { id: 'avatar', title: 'Avatar', description: 'A circular image sized by the --size custom property.', html: `<div class="button-group separated">
 ${[24, 48, 96].map(size => `  <img class="avatar" style="--size: ${size}px" alt="${size}px avatar" src="data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#5865f2"/><circle cx="32" cy="26" r="11" fill="#fff"/><path d="M10 64c2-16 12-22 22-22s20 6 22 22z" fill="#fff"/></svg>')}">`).join('\n')}
 </div>` },
+  { id: 'progress', title: 'Progress', description: 'A track with a bar inside. The bar fills with the current text colour, set its width yourself.', html: `<div class="progress" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width: 25%"></div></div>
+<div class="progress" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width: 60%"></div></div>
+<div class="progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width: 100%"></div></div>` },
 ];
