@@ -18,10 +18,10 @@ export const iconSetLabels: Record<IconSet, string> = {
 };
 
 const faIcons: Record<IconName, { icon: [number, number, unknown, unknown, string] }> = {
-  'check': fontAwesome.faCheck as never,
+  check: fontAwesome.faCheck as never,
   'chevron-down': fontAwesome.faChevronDown as never,
-  'clipboard': fontAwesome.faClipboard as never,
-  'spinner': fontAwesome.faSpinner as never,
+  clipboard: fontAwesome.faClipboard as never,
+  spinner: fontAwesome.faSpinner as never,
 };
 
 // The build runs from docs/

@@ -1,7 +1,7 @@
-@use "common";
-@use "functions";
-@use "sass:map";
-@use "sass:meta";
+@use 'common';
+@use 'functions';
+@use 'sass:map';
+@use 'sass:meta';
 
 @mixin color-variables {
   @each $key, $variants in common.$color-map {
@@ -13,14 +13,14 @@
 
   @at-root {
     @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
+      :root:not([data-theme='light']) {
         @each $key, $variants in common.$color-map {
           --#{functions.$color-var-prefix}-#{$key}: var(--#{functions.$color-var-prefix}-#{$key}-dark);
         }
       }
     }
 
-    :root[data-theme="dark"] {
+    :root[data-theme='dark'] {
       @each $key, $variants in common.$color-map {
         --#{functions.$color-var-prefix}-#{$key}: var(--#{functions.$color-var-prefix}-#{$key}-dark);
       }
@@ -237,7 +237,9 @@
 }
 
 @mixin heading-margins {
-  h2, h3, h4 {
+  h2,
+  h3,
+  h4 {
     margin-bottom: functions.app-value('content-heading-margin-bottom');
   }
 }
@@ -271,7 +273,7 @@
   }
 
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) & {
+    :root:not([data-theme='light']) & {
       img.theme-light-image {
         display: none;
       }
@@ -282,7 +284,7 @@
     }
   }
 
-  :root[data-theme="dark"] & {
+  :root[data-theme='dark'] & {
     img.theme-light-image {
       display: none;
     }

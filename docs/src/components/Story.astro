@@ -2,23 +2,34 @@
 import { Code } from 'astro:components';
 import { format } from 'prettier';
 import type { Story } from '../lib/stories';
-interface Props { story: Story }
+interface Props {
+  story: Story;
+}
 const { story } = Astro.props;
 // The preview renders the story as written, only the displayed (and copied) source is formatted.
 // The default CSS whitespace sensitivity is kept, since the whitespace between inline elements matters.
 const source = (await format(story.html, { parser: 'html', printWidth: 100, tabWidth: 2 })).trimEnd();
 ---
+
 <article class="card" id={story.id}>
-  <header class="card-header"><h2>{story.title}</h2></header>
+  <header class="card-header">
+    <h2>{story.title}</h2>
+  </header>
   <p>{story.description}</p>
   {story.notes && (
     <ul class="docs-notes">
-      {story.notes.map(note => <li set:html={note} />)}
+      {story.notes.map((note) => (
+        <li set:html={note} />
+      ))}
     </ul>
   )}
   <div class="docs-preview" set:html={story.html} />
   <div class="docs-story-actions">
-    <button type="button" class="button" data-copy-source><span class="button-content"><span class="button-text">Copy HTML</span></span></button>
+    <button type="button" class="button" data-copy-source>
+      <span class="button-content">
+        <span class="button-text">Copy HTML</span>
+      </span>
+    </button>
   </div>
   <details>
     <summary>HTML source</summary>

@@ -1,4 +1,4 @@
-@use "../design";
+@use '../design';
 
 .badge {
   color: design.app-color('badge-default-color');
@@ -15,7 +15,8 @@
     padding: 0 design.app-value('badge-spacing');
   }
 
-  .badge-prefix, .badge-suffix {
+  .badge-prefix,
+  .badge-suffix {
     background-color: design.app-color('badge-secondary-bg');
   }
 

@@ -1,60 +1,196 @@
 /* Docs-only styles, not part of the published package */
-.docs-main { max-width: 64rem; margin: 0 auto; padding: 1rem; display: flex; flex-flow: column; gap: 1rem; }
-.docs-toolbar { display: flex; flex-flow: row wrap; gap: .5rem; align-items: center; }
-.docs-toolbar-label { font-weight: bold; }
-.docs-preview:has(.combobox-suggestions) { padding-block-end: 20rem; }
+.docs-main {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+}
+.docs-toolbar {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.docs-toolbar-label {
+  font-weight: bold;
+}
+.docs-preview:has(.combobox-suggestions) {
+  padding-block-end: 20rem;
+}
 /* The main combobox demo has a long list (max-height is 35vh, so it can be taller than the generic padding) */
-#combobox .docs-preview { padding-block-end: 28rem; }
-.docs-preview { padding: 1rem; border: 1px dashed var(--ht-color-card-border, currentColor); border-radius: .5rem; display: flex; flex-flow: column; gap: .5rem; }
-.docs-source { overflow: auto; max-height: 24rem; padding: .75rem; border-radius: .5rem; background: rgb(0 0 0 / .15); white-space: pre; font-family: var(--ht-value-font-family-mono); font-size: .8em; }
-.docs-story-actions { display: flex; gap: .5rem; margin-block: .5rem; }
-.docs-token-table td:first-child { font-family: var(--ht-value-font-family-mono); }
-.docs-swatch { display: inline-block; inline-size: 1em; block-size: 1em; border-radius: .2em; border: 1px solid currentColor; vertical-align: middle; margin-inline-end: .4em; }
-.docs-playground-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: .5rem; }
-.docs-nav { display: flex; flex-flow: row wrap; gap: .75rem; }
-.docs-nav a { text-decoration: underline; }
+#combobox .docs-preview {
+  padding-block-end: 28rem;
+}
+.docs-preview {
+  padding: 1rem;
+  border: 1px dashed var(--ht-color-card-border, currentColor);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-flow: column;
+  gap: 0.5rem;
+}
+.docs-source {
+  overflow: auto;
+  max-height: 24rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background: rgb(0 0 0 / 0.15);
+  white-space: pre;
+  font-family: var(--ht-value-font-family-mono);
+  font-size: 0.8em;
+}
+.docs-story-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-block: 0.5rem;
+}
+.docs-token-table td:first-child {
+  font-family: var(--ht-value-font-family-mono);
+}
+.docs-swatch {
+  display: inline-block;
+  inline-size: 1em;
+  block-size: 1em;
+  border-radius: 0.2em;
+  border: 1px solid currentColor;
+  vertical-align: middle;
+  margin-inline-end: 0.4em;
+}
+.docs-playground-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 0.5rem;
+}
+.docs-nav {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.75rem;
+}
+.docs-nav a {
+  text-decoration: underline;
+}
 
 /* The reset strips the disclosure marker, so make the toggles look clickable */
-.docs-main summary { display: flex; align-items: center; gap: .5rem; cursor: pointer; padding: .5rem .75rem; border-radius: .5rem; border: 1px solid currentColor; font-weight: bold; user-select: none; }
-.docs-main summary:hover { background: rgb(128 128 128 / .2); }
-.docs-main summary:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
-.docs-main summary::before { content: ""; inline-size: .5em; block-size: .5em; border-inline-end: 2px solid currentColor; border-block-end: 2px solid currentColor; transform: rotate(-45deg); transition: transform .15s; }
-:root[dir="rtl"] .docs-main summary::before { transform: rotate(45deg); }
-.docs-main details[open] > summary::before { transform: rotate(45deg); }
-.docs-main details[open] > summary { margin-block-end: .5rem; }
-.docs-main details + details { margin-block-start: .5rem; }
+.docs-main summary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid currentColor;
+  font-weight: bold;
+  user-select: none;
+}
+.docs-main summary:hover {
+  background: rgb(128 128 128 / 0.2);
+}
+.docs-main summary:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+.docs-main summary::before {
+  content: '';
+  inline-size: 0.5em;
+  block-size: 0.5em;
+  border-inline-end: 2px solid currentColor;
+  border-block-end: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.15s;
+}
+:root[dir='rtl'] .docs-main summary::before {
+  transform: rotate(45deg);
+}
+.docs-main details[open] > summary::before {
+  transform: rotate(45deg);
+}
+.docs-main details[open] > summary {
+  margin-block-end: 0.5rem;
+}
+.docs-main details + details {
+  margin-block-start: 0.5rem;
+}
 
 /* Spinning icons for the loading slot demos (neither icon set animates its own spinner) */
-@keyframes docs-spin { to { transform: rotate(360deg); } }
-.docs-spin { animation: docs-spin 1s linear infinite; }
-@media (prefers-reduced-motion: reduce) { .docs-spin { animation-duration: 4s; } }
+@keyframes docs-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.docs-spin {
+  animation: docs-spin 1s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .docs-spin {
+    animation-duration: 4s;
+  }
+}
 
-.docs-notes { display: flex; flex-flow: column; gap: .5rem; margin-block: .5rem; padding-inline-start: 1.25rem; }
-.docs-notes li { list-style: disc; }
+.docs-notes {
+  display: flex;
+  flex-flow: column;
+  gap: 0.5rem;
+  margin-block: 0.5rem;
+  padding-inline-start: 1.25rem;
+}
+.docs-notes li {
+  list-style: disc;
+}
 
 /* Copy buttons in the token reference: clipboard icon, swapped for a check once copied */
-.docs-icon-copied { display: none; }
-.docs-copied .docs-icon-copy { display: none; }
-.docs-copied .docs-icon-copied { display: inline; }
-.docs-token-table td:first-child .copyable-text-data { font-family: var(--ht-value-font-family-mono); }
+.docs-icon-copied {
+  display: none;
+}
+.docs-copied .docs-icon-copy {
+  display: none;
+}
+.docs-copied .docs-icon-copied {
+  display: inline;
+}
+.docs-token-table td:first-child .copyable-text-data {
+  font-family: var(--ht-value-font-family-mono);
+}
 
 /* Docs-only gradient layer driven by the framework's --ht-*-bg-gradient-* tokens (the library only emits it with $background-gradient: true) */
 body.docs-gradient::before {
-  content: "";
+  content: '';
   position: fixed;
   inset: 0;
   z-index: var(--ht-z-index-background);
   opacity: var(--ht-value-bg-gradient-opacity);
-  background-image: linear-gradient(calc(180deg - var(--docs-gradient-angle, var(--ht-value-bg-gradient-angle))), var(--ht-color-bg-gradient-start) var(--ht-value-bg-gradient-start-position), var(--ht-color-bg-gradient-mid) var(--ht-value-bg-gradient-mid-position), var(--ht-color-bg-gradient-end) var(--ht-value-bg-gradient-end-position));
+  background-image: linear-gradient(
+    calc(180deg - var(--docs-gradient-angle, var(--ht-value-bg-gradient-angle))),
+    var(--ht-color-bg-gradient-start) var(--ht-value-bg-gradient-start-position),
+    var(--ht-color-bg-gradient-mid) var(--ht-value-bg-gradient-mid-position),
+    var(--ht-color-bg-gradient-end) var(--ht-value-bg-gradient-end-position)
+  );
   background-repeat: no-repeat;
   background-attachment: fixed;
   pointer-events: none;
 }
-:root[dir="rtl"] body.docs-gradient { --docs-gradient-angle: calc(-1 * var(--ht-value-bg-gradient-angle)); }
-@media print { body.docs-gradient::before { display: none; } }
+:root[dir='rtl'] body.docs-gradient {
+  --docs-gradient-angle: calc(-1 * var(--ht-value-bg-gradient-angle));
+}
+@media print {
+  body.docs-gradient::before {
+    display: none;
+  }
+}
 
 /* Syntax highlighting: Shiki emits both palettes as variables, pick one to follow the docs theme switch */
-.astro-code span { color: var(--shiki-light); }
-html[data-theme="dark"] .astro-code span { color: var(--shiki-dark); }
-@media (prefers-color-scheme: dark) { html:not([data-theme="light"]) .astro-code span { color: var(--shiki-dark); } }
-.docs-source.astro-code { tab-size: 2; }
+.astro-code span {
+  color: var(--shiki-light);
+}
+html[data-theme='dark'] .astro-code span {
+  color: var(--shiki-dark);
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme='light']) .astro-code span {
+    color: var(--shiki-dark);
+  }
+}
+.docs-source.astro-code {
+  tab-size: 2;
+}

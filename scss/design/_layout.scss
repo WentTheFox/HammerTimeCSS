@@ -1,7 +1,7 @@
-@use "functions";
-@use "mixins";
-@use "common";
-@use "config";
+@use 'functions';
+@use 'mixins';
+@use 'common';
+@use 'config';
 
 :root {
   @include mixins.z-index-variables;
@@ -35,7 +35,7 @@ body {
 
   @if config.$background-gradient {
     &:before {
-      content: "";
+      content: '';
       display: block;
       position: fixed;
       z-index: functions.app-z-index('background');
@@ -44,7 +44,12 @@ body {
       right: 0;
       bottom: 0;
       opacity: functions.app-value('bg-gradient-opacity');
-      background-image: linear-gradient(calc(180deg - var(--bg-gradient-angle)), var(--bg-gradient-start) #{functions.app-value('bg-gradient-start-position')}, var(--bg-gradient-mid) #{functions.app-value('bg-gradient-mid-position')}, var(--bg-gradient-end) #{functions.app-value('bg-gradient-end-position')});
+      background-image: linear-gradient(
+        calc(180deg - var(--bg-gradient-angle)),
+        var(--bg-gradient-start) #{functions.app-value('bg-gradient-start-position')},
+        var(--bg-gradient-mid) #{functions.app-value('bg-gradient-mid-position')},
+        var(--bg-gradient-end) #{functions.app-value('bg-gradient-end-position')}
+      );
       background-repeat: no-repeat;
       background-attachment: fixed;
       pointer-events: none;
@@ -89,6 +94,6 @@ body {
 }
 
 .muted {
-  color: functions.app-color("muted-text");
+  color: functions.app-color('muted-text');
   font-size: 0.875em;
 }

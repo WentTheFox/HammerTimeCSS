@@ -4,7 +4,7 @@
 // Brand and text colors the default palette is derived from
 $brand-color: #5865f2 !default;
 $text-color-light: #313131 !default;
-$text-color-dark: #C1C2C5 !default;
+$text-color-dark: #c1c2c5 !default;
 // The page background gradient is opt-in: set to true to paint it behind the page (a fixed `body::before` layer)
 $background-gradient: false !default;
 // Gradient ends, derived from the brand color when null (the middle of the gradient is always the brand color)

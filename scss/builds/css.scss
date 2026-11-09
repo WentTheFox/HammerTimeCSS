@@ -1,2 +1,4 @@
 // CSS-only build: brand-derived colors are computed at runtime from --ht-brand
-@use '../index' with ($color-derivation: 'css');
+@use '../index' with (
+  $color-derivation: 'css'
+);

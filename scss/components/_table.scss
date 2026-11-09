@@ -1,4 +1,4 @@
-@use "../design";
+@use '../design';
 
 .table-wrap {
   width: 100%;
@@ -16,7 +16,8 @@
     font-weight: bold;
   }
 
-  th, td {
+  th,
+  td {
     padding: design.app-value('table-cell-spacing');
     vertical-align: middle;
   }

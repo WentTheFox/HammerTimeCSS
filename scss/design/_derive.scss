@@ -3,10 +3,10 @@
 //  - 'css': emitted as CSS relative color syntax based on `--ht-brand`, so the whole palette can be
 //    re-themed at runtime by changing a single custom property. Needs relative color support
 //    (Chrome 119+, Safari 16.4+, Firefox 128+).
-@use "sass:color";
-@use "sass:math";
-@use "sass:meta";
-@use "config";
+@use 'sass:color';
+@use 'sass:math';
+@use 'sass:meta';
+@use 'config';
 
 // The brand color: a color in 'sass' mode, a reference to the custom property in 'css' mode
 @function brand() {

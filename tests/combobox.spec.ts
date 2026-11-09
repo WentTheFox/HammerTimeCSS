@@ -7,14 +7,15 @@ const box = async (locator: Locator) => {
 };
 
 /** The element at the center of `target`, as a path of class names starting from the topmost element */
-const topmostAtCenter = (target: Locator) => target.evaluate((el) => {
-  const rect = el.getBoundingClientRect();
-  const hit = document.elementFromPoint(rect.x + rect.width / 2, rect.y + rect.height / 2);
-  return {
-    isTarget: el === hit || el.contains(hit),
-    insideSuggestions: !!hit?.closest('.combobox-suggestions'),
-  };
-});
+const topmostAtCenter = (target: Locator) =>
+  target.evaluate((el) => {
+    const rect = el.getBoundingClientRect();
+    const hit = document.elementFromPoint(rect.x + rect.width / 2, rect.y + rect.height / 2);
+    return {
+      isTarget: el === hit || el.contains(hit),
+      insideSuggestions: !!hit?.closest('.combobox-suggestions'),
+    };
+  });
 
 test.describe('combobox stacking story', () => {
   test.beforeEach(async ({ page }) => {
@@ -22,7 +23,10 @@ test.describe('combobox stacking story', () => {
     await page.locator('#combobox-stacking .docs-preview').scrollIntoViewIfNeeded();
   });
 
-  for (const [name, index, suggestionsOnTop] of [['broken', 0, false], ['fixed', 1, true]] as const) {
+  for (const [name, index, suggestionsOnTop] of [
+    ['broken', 0, false],
+    ['fixed', 1, true],
+  ] as const) {
     test.describe(`${name} example`, () => {
       test('the input fills the width of its column', async ({ page }) => {
         const column = page.locator('#combobox-stacking .docs-playground-grid > div').nth(index);

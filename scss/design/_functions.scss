@@ -1,6 +1,6 @@
-@use "sass:string";
-@use "sass:map";
-@use "common";
+@use 'sass:string';
+@use 'sass:map';
+@use 'common';
 
 $z-index-var-prefix: 'ht-z-index';
 
@@ -30,5 +30,5 @@ $color-var-prefix: 'ht-color';
     @return var(--#{$color-var-prefix}-#{$key});
   }
 
-  @return #FF00FF;
+  @return #ff00ff;
 }

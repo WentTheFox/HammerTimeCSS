@@ -1,4 +1,4 @@
-@use "../design";
+@use '../design';
 
 .alert {
   --spacing: #{design.app-value('alert-spacing')};
@@ -54,7 +54,8 @@
     color: design.app-color('alert-warning-color');
     background-color: design.app-color('alert-warning-bg');
 
-    .alert-title, .alert-icon {
+    .alert-title,
+    .alert-icon {
       color: design.app-color('alert-warning-hl-color');
     }
   }

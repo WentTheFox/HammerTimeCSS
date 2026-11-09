@@ -1,4 +1,4 @@
-@use "../design";
+@use '../design';
 
 @include design.screen-below('md') {
   body:has(.popup[open]) {

@@ -1,5 +1,5 @@
-@use "../design";
-@use "sass:map";
+@use '../design';
+@use 'sass:map';
 
 $spacing-keys: map.keys(design.$spacing);
 @each $key in $spacing-keys {

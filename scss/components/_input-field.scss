@@ -1,4 +1,4 @@
-@use "../design";
+@use '../design';
 
 .input-field {
   display: block;
@@ -14,7 +14,7 @@
     width: 100%;
   }
 
-  &:not([type="color"]) {
+  &:not([type='color']) {
     color: design.app-color('input-field-color');
     background-color: design.app-color('input-field-bg');
     padding: design.app-value('input-field-padding');
@@ -28,7 +28,7 @@
     }
   }
 
-  &[type="color"] {
+  &[type='color'] {
     // The reset leaves color inputs without an intrinsic size
     width: design.app-value('input-field-color-width');
     height: design.app-value('input-field-color-height');
@@ -70,6 +70,6 @@
   }
 
   &[disabled] {
-    opacity: .6;
+    opacity: 0.6;
   }
 }

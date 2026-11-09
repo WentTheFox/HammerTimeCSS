@@ -1,5 +1,5 @@
-@use "sass:math";
-@use "../design";
+@use 'sass:math';
+@use '../design';
 
 @each $size in design.$sizing {
   $size-in-em: design.app-value('size-#{$size}');
@@ -11,4 +11,3 @@
     font-size: $size-in-em;
   }
 }
-

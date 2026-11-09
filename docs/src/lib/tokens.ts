@@ -36,5 +36,5 @@ export const getTokenGroups = (): TokenGroup[] => {
     const group = name.startsWith('--ht-value-') ? 1 : name.startsWith('--ht-color-') ? 2 : name.startsWith('--ht-z-index-') ? 3 : 0;
     groups[group].tokens.push({ name, value });
   }
-  return groups.filter(group => group.tokens.length > 0);
+  return groups.filter((group) => group.tokens.length > 0);
 };

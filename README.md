@@ -19,13 +19,13 @@ Or use the compiled `dist/hammertime.css`.
 including the brand-derived palette, which is computed at runtime from a single variable:
 
 ```html
-<link rel="stylesheet" href="@went.tf/hammertime-css/dist/hammertime.css">
+<link rel="stylesheet" href="@went.tf/hammertime-css/dist/hammertime.css" />
 <style>
   :root {
-    --ht-brand: #e8590c;                       /* re-themes header, cards, inputs, primary buttons, links, ... */
-    --ht-value-button-border-radius: .5rem;    /* any value token */
-    --ht-color-card-bg-light: #fff;            /* any color token, per theme: -light / -dark */
-    --ht-value-spacing-2: .75em;               /* the .m-*, .p-* utilities follow --ht-value-spacing-* */
+    --ht-brand: #e8590c; /* re-themes header, cards, inputs, primary buttons, links, ... */
+    --ht-value-button-border-radius: 0.5rem; /* any value token */
+    --ht-color-card-bg-light: #fff; /* any color token, per theme: -light / -dark */
+    --ht-value-spacing-2: 0.75em; /* the .m-*, .p-* utilities follow --ht-value-spacing-* */
   }
 </style>
 ```
@@ -36,12 +36,12 @@ the same tokens are still individually overridable, only `--ht-brand` does not e
 
 Token reference:
 
-| Property | Meaning |
-| --- | --- |
-| `--ht-brand` | Brand color the palette is derived from (CSS-only build) |
-| `--ht-value-*` | Sizes, spacing, radii, typography. Responsive ones have breakpoint overrides inside the stylesheet |
-| `--ht-color-*-light` / `--ht-color-*-dark` | Per-theme colors, `--ht-color-*` is the alias that follows the active theme |
-| `--ht-z-index-*` | Layering |
+| Property                                   | Meaning                                                                                            |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------- |
+| `--ht-brand`                               | Brand color the palette is derived from (CSS-only build)                                           |
+| `--ht-value-*`                             | Sizes, spacing, radii, typography. Responsive ones have breakpoint overrides inside the stylesheet |
+| `--ht-color-*-light` / `--ht-color-*-dark` | Per-theme colors, `--ht-color-*` is the alias that follows the active theme                        |
+| `--ht-z-index-*`                           | Layering                                                                                           |
 
 Limits: media query breakpoints (`sm` 400px, `md` 768px, `lg` 1024px, `xl` 1200px, `xxl` 1600px) cannot be CSS
 variables, they are set with `$extend-breakpoints` in Sass. To change a responsive value at one breakpoint, override
@@ -56,8 +56,15 @@ Configure the framework **before anything else loads it**:
 @use '@went.tf/hammertime-css' with (
   $brand-color: #e8590c,
   // add or replace tokens, emitted as --ht-value-*, --ht-color-* and --ht-z-index-*
-  $extend-values: (button-border-radius: .5rem),
-  $extend-colors: (my-accent: (light: #e8590c, dark: #ffa94d)),
+  $extend-values: (
+      button-border-radius: 0.5rem,
+    ),
+  $extend-colors: (
+    my-accent: (
+      light: #e8590c,
+      dark: #ffa94d,
+    ),
+  )
 );
 ```
 
@@ -74,7 +81,9 @@ Everything else is a CSS custom property, so it can also be changed at runtime
 Single components can be used on their own, after configuring `@went.tf/hammertime-css/design`:
 
 ```scss
-@use '@went.tf/hammertime-css/design' with ($brand-color: #e8590c);
+@use '@went.tf/hammertime-css/design' with (
+  $brand-color: #e8590c
+);
 @use '@went.tf/hammertime-css/components/button';
 ```
 
@@ -104,12 +113,12 @@ Releases are automatic. Commits to `main` follow [Conventional Commits](https://
 (enforced by commitlint, locally through a Husky hook and in CI). On every push to `main` the next
 [semantic version](https://semver.org/) is computed from the commits since the last tag:
 
-| Commit | Release |
-| --- | --- |
-| `fix:` | patch |
-| `feat:` | minor |
-| `feat!:` / `BREAKING CHANGE:` | major |
-| `docs:`, `chore:`, `ci:`, `refactor:` ... | none |
+| Commit                                    | Release |
+| ----------------------------------------- | ------- |
+| `fix:`                                    | patch   |
+| `feat:`                                   | minor   |
+| `feat!:` / `BREAKING CHANGE:`             | major   |
+| `docs:`, `chore:`, `ci:`, `refactor:` ... | none    |
 
 The package is built and published to npm, then the `vX.Y.Z` tag and a GitHub release with the changelog are created.
 `package.json` always says `0.0.0`, the version only lives in the tag.

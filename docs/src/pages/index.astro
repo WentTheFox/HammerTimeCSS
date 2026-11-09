@@ -10,6 +10,7 @@ const clipboardIcon = icon('fontawesome', 'clipboard');
 const checkIcon = icon('fontawesome', 'check');
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
+
 <Base title="HammerTimeCSS">
   <header class="header">
     <strong>HammerTimeCSS</strong>
@@ -24,76 +25,149 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   <main class="docs-main">
     <article class="card">
-      <header class="card-header"><h1>HammerTimeCSS</h1></header>
-      <p>The design of HammerTime as an extensible, HTML/CSS-only framework. Everything on this page is rendered with the published stylesheet; the controls below are docs-only JavaScript and are not part of the package.</p>
+      <header class="card-header">
+        <h1>HammerTimeCSS</h1>
+      </header>
+      <p>
+        The design of HammerTime as an extensible, HTML/CSS-only framework. Everything on this page is rendered with the published stylesheet; the controls
+        below are docs-only JavaScript and are not part of the package.
+      </p>
       <code class="code-span">npm install @went.tf/hammertime-css</code>
     </article>
 
     <section class="card">
-      <header class="card-header"><h2>Display options</h2></header>
+      <header class="card-header">
+        <h2>Display options</h2>
+      </header>
       <div class="docs-toolbar">
         <span class="docs-toolbar-label">Theme</span>
-        <button type="button" class="button" data-theme-set="auto"><span class="button-content"><span class="button-text">Auto</span></span></button>
-        <button type="button" class="button" data-theme-set="light"><span class="button-content"><span class="button-text">Light</span></span></button>
-        <button type="button" class="button" data-theme-set="dark"><span class="button-content"><span class="button-text">Dark</span></span></button>
+        <button type="button" class="button" data-theme-set="auto">
+          <span class="button-content">
+            <span class="button-text">Auto</span>
+          </span>
+        </button>
+        <button type="button" class="button" data-theme-set="light">
+          <span class="button-content">
+            <span class="button-text">Light</span>
+          </span>
+        </button>
+        <button type="button" class="button" data-theme-set="dark">
+          <span class="button-content">
+            <span class="button-text">Dark</span>
+          </span>
+        </button>
         <span class="docs-toolbar-label">Direction</span>
-        <button type="button" class="button" data-toggle-rtl><span class="button-content"><span class="button-text">Toggle RTL</span></span></button>
+        <button type="button" class="button" data-toggle-rtl>
+          <span class="button-content">
+            <span class="button-text">Toggle RTL</span>
+          </span>
+        </button>
         <span class="docs-toolbar-label">Style</span>
-        <button type="button" class="button" data-toggle-flat><span class="button-content"><span class="button-text">Toggle flat UI</span></span></button>
+        <button type="button" class="button" data-toggle-flat>
+          <span class="button-content">
+            <span class="button-text">Toggle flat UI</span>
+          </span>
+        </button>
       </div>
     </section>
 
     <section id="stories" class="docs-main" style="padding:0">
-      {stories.map(story => <Story story={story} />)}
+      {stories.map((story) => (
+        <Story story={story} />
+      ))}
     </section>
 
     <section id="playground" class="card">
-      <header class="card-header"><h2>--ht-brand playground</h2></header>
-      <p>Needs the CSS-only build, which derives the palette from <code class="code-span">--ht-brand</code> at runtime. Edit any custom property below to see it applied live.</p>
+      <header class="card-header">
+        <h2>--ht-brand playground</h2>
+      </header>
+      <p>
+        Needs the CSS-only build, which derives the palette from <code class="code-span">--ht-brand</code> at runtime. Edit any custom property below to see it
+        applied live.
+      </p>
       <div class="docs-toolbar">
         <label for="brand-input">Brand</label>
-        <input id="brand-input" class="input-field" type="color" value="#5865f2" data-brand-input>
-        <button type="button" class="button" data-brand-reset><span class="button-content"><span class="button-text">Reset</span></span></button>
-        <button type="button" class="button" data-brand-copy><span class="button-content"><span class="button-text">Copy CSS</span></span></button>
+        <input id="brand-input" class="input-field" type="color" value="#5865f2" data-brand-input />
+        <button type="button" class="button" data-brand-reset>
+          <span class="button-content">
+            <span class="button-text">Reset</span>
+          </span>
+        </button>
+        <button type="button" class="button" data-brand-copy>
+          <span class="button-content">
+            <span class="button-text">Copy CSS</span>
+          </span>
+        </button>
       </div>
       <div class="docs-playground-grid">
-        {['--ht-value-button-border-radius', '--ht-value-spacing-2', '--ht-color-card-bg-light'].map(name => (
-          <div class="form-control"><label class="form-control-label">{name}<input class="input-field full-width" type="text" data-token-input={name} placeholder="override"></label></div>
+        {['--ht-value-button-border-radius', '--ht-value-spacing-2', '--ht-color-card-bg-light'].map((name) => (
+          <div class="form-control">
+            <label class="form-control-label">
+              {name}
+              <input class="input-field full-width" type="text" data-token-input={name} placeholder="override" />
+            </label>
+          </div>
         ))}
       </div>
       <h3>Background gradient</h3>
-      <p>The gradient is opt-in in the library (<code class="code-span">$background-gradient: true</code> in Sass), the compiled stylesheet does not include it. This toggle only paints it with docs-only CSS from the same <code class="code-span">--ht-color-bg-gradient-*</code> and <code class="code-span">--ht-value-bg-gradient-*</code> tokens. The middle is the brand color, the start and end follow it until you pick a color.</p>
+      <p>
+        The gradient is opt-in in the library (<code class="code-span">$background-gradient: true</code> in Sass), the compiled stylesheet does not include it.
+        This toggle only paints it with docs-only CSS from the same <code class="code-span">--ht-color-bg-gradient-*</code> and{' '}
+        <code class="code-span">--ht-value-bg-gradient-*</code> tokens. The middle is the brand color, the start and end follow it until you pick a color.
+      </p>
       <div class="docs-toolbar">
         <div class="form-control-checkbox">
           <span class="form-checkbox-input-wrap">
-            <input id="gradient-toggle" class="form-checkbox-input" type="checkbox" data-gradient-toggle>
+            <input id="gradient-toggle" class="form-checkbox-input" type="checkbox" data-gradient-toggle />
             <span class="form-checkbox-check-icon" set:html={checkIcon} />
-          </span><label class="form-checkbox-label" for="gradient-toggle">Show gradient</label>
+          </span>
+          <label class="form-checkbox-label" for="gradient-toggle">
+            Show gradient
+          </label>
         </div>
         <label for="gradient-start">Start</label>
-        <input id="gradient-start" class="input-field" type="color" data-gradient-color="start">
+        <input id="gradient-start" class="input-field" type="color" data-gradient-color="start" />
         <label for="gradient-end">End</label>
-        <input id="gradient-end" class="input-field" type="color" data-gradient-color="end">
-        <button type="button" class="button" data-gradient-reset><span class="button-content"><span class="button-text">Follow brand</span></span></button>
+        <input id="gradient-end" class="input-field" type="color" data-gradient-color="end" />
+        <button type="button" class="button" data-gradient-reset>
+          <span class="button-content">
+            <span class="button-text">Follow brand</span>
+          </span>
+        </button>
       </div>
       <pre class="docs-source" data-brand-output></pre>
     </section>
 
     <section id="tokens" class="card">
-      <header class="card-header"><h2>Token reference</h2></header>
+      <header class="card-header">
+        <h2>Token reference</h2>
+      </header>
       <p>Generated from the compiled Sass token maps. Use the copy button next to a property name to copy it.</p>
-      {tokenGroups.map(group => (
+      {tokenGroups.map((group) => (
         <details>
-          <summary>{group.title} ({group.tokens.length})</summary>
+          <summary>
+            {group.title} ({group.tokens.length})
+          </summary>
           <div class="table-wrap responsive">
             <table class="table docs-token-table">
-              <thead><tr><th>Property</th><th>Default</th></tr></thead>
+              <thead>
+                <tr>
+                  <th>Property</th>
+                  <th>Default</th>
+                </tr>
+              </thead>
               <tbody>
-                {group.tokens.map(token => (
+                {group.tokens.map((token) => (
                   <tr>
                     <td>
                       <div class="copyable-text">
-                        <button type="button" class="button button-primary icon-only" data-copy-text={token.name} aria-label={`Copy ${token.name}`} title="Copy to clipboard">
+                        <button
+                          type="button"
+                          class="button button-primary icon-only"
+                          data-copy-text={token.name}
+                          aria-label={`Copy ${token.name}`}
+                          title="Copy to clipboard"
+                        >
                           <span class="button-content">
                             <span class="button-icon docs-icon-copy" set:html={clipboardIcon} />
                             <span class="button-icon docs-icon-copied" set:html={checkIcon} />
@@ -115,8 +189,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <p>
         Icons shown in the demos are not part of HammerTimeCSS, which only provides slots for them.
         <a href="https://fontawesome.com">Font Awesome Free</a> solid icons are licensed
-        <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>,
-        <a href="https://lucide.dev">Lucide</a> icons are licensed
+        <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>,<a href="https://lucide.dev">Lucide</a> icons are licensed
         <a href="https://lucide.dev/license">ISC</a>.
       </p>
     </footer>
@@ -124,13 +197,20 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   <script>
     const root = document.documentElement;
-    const safe = <T,>(fn: () => T): T | undefined => { try { return fn(); } catch { return undefined; } };
+    const safe = <T,>(fn: () => T): T | undefined => {
+      try {
+        return fn();
+      } catch {
+        return undefined;
+      }
+    };
 
     const setTheme = (theme: string) => {
-      if (theme === 'auto') root.removeAttribute('data-theme'); else root.setAttribute('data-theme', theme);
+      if (theme === 'auto') root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', theme);
       safe(() => localStorage.setItem('ht-docs-theme', theme));
     };
-    document.querySelectorAll<HTMLElement>('[data-theme-set]').forEach(el => el.addEventListener('click', () => setTheme(el.dataset.themeSet!)));
+    document.querySelectorAll<HTMLElement>('[data-theme-set]').forEach((el) => el.addEventListener('click', () => setTheme(el.dataset.themeSet!)));
     const stored = safe(() => localStorage.getItem('ht-docs-theme'));
     if (stored) setTheme(stored);
 
@@ -146,28 +226,37 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       } catch {
         if (label) label.textContent = 'Copy failed';
       }
-      if (label) setTimeout(() => { label.textContent = original ?? ''; }, 1500);
+      if (label)
+        setTimeout(() => {
+          label.textContent = original ?? '';
+        }, 1500);
     };
-    document.querySelectorAll<HTMLElement>('[data-copy-source]').forEach(btn => btn.addEventListener('click', () => {
-      copy(btn.closest('article')?.querySelector('.docs-source')?.textContent ?? '', btn);
-    }));
-    document.querySelectorAll<HTMLElement>('[data-copy-text]').forEach(btn => btn.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(btn.dataset.copyText!);
-      } catch {
-        return;
-      }
-      btn.classList.replace('button-primary', 'button-success');
-      btn.classList.add('pressed', 'docs-copied');
-      setTimeout(() => {
-        btn.classList.replace('button-success', 'button-primary');
-        btn.classList.remove('pressed', 'docs-copied');
-      }, 1500);
-    }));
+    document.querySelectorAll<HTMLElement>('[data-copy-source]').forEach((btn) =>
+      btn.addEventListener('click', () => {
+        copy(btn.closest('article')?.querySelector('.docs-source')?.textContent ?? '', btn);
+      }),
+    );
+    document.querySelectorAll<HTMLElement>('[data-copy-text]').forEach((btn) =>
+      btn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(btn.dataset.copyText!);
+        } catch {
+          return;
+        }
+        btn.classList.replace('button-primary', 'button-success');
+        btn.classList.add('pressed', 'docs-copied');
+        setTimeout(() => {
+          btn.classList.replace('button-success', 'button-primary');
+          btn.classList.remove('pressed', 'docs-copied');
+        }, 1500);
+      }),
+    );
 
-    document.querySelectorAll<HTMLElement>('[data-demo-toggle]').forEach(btn => btn.addEventListener('click', () => {
-      document.querySelector(btn.dataset.demoToggle!)?.classList.toggle('visible');
-    }));
+    document.querySelectorAll<HTMLElement>('[data-demo-toggle]').forEach((btn) =>
+      btn.addEventListener('click', () => {
+        document.querySelector(btn.dataset.demoToggle!)?.classList.toggle('visible');
+      }),
+    );
 
     // --ht-brand playground
     const brandInput = document.querySelector<HTMLInputElement>('[data-brand-input]')!;
@@ -191,11 +280,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       context.fillStyle = getComputedStyle(probe).color;
       context.fillRect(0, 0, 1, 1);
       const [r, g, b] = context.getImageData(0, 0, 1, 1).data;
-      return '#' + [r, g, b].map(v => v.toString(16).padStart(2, '0')).join('');
+      return '#' + [r, g, b].map((v) => v.toString(16).padStart(2, '0')).join('');
     };
     // Keeps the pickers in sync with the derived colors for the ends that follow the brand
     const syncGradientInputs = () => {
-      gradientInputs.forEach(input => {
+      gradientInputs.forEach((input) => {
         const end = input.dataset.gradientColor!;
         if (!gradientCustom.has(end)) {
           root.style.removeProperty(gradientToken(end));
@@ -207,8 +296,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     const overrides = () => {
       const declarations: string[] = [];
       if (brandInput.value !== defaultBrand) declarations.push(`--ht-brand: ${brandInput.value};`);
-      tokenInputs.forEach(input => { if (input.value.trim()) declarations.push(`${input.dataset.tokenInput}: ${input.value.trim()};`); });
-      gradientInputs.forEach(input => {
+      tokenInputs.forEach((input) => {
+        if (input.value.trim()) declarations.push(`${input.dataset.tokenInput}: ${input.value.trim()};`);
+      });
+      gradientInputs.forEach((input) => {
         const end = input.dataset.gradientColor!;
         if (gradientCustom.has(end)) declarations.push(`${gradientToken(end)}: ${input.value};`);
       });
@@ -216,22 +307,41 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     };
     const apply = () => {
       root.style.removeProperty('--ht-brand');
-      tokenInputs.forEach(input => root.style.removeProperty(input.dataset.tokenInput!));
-      gradientInputs.forEach(input => root.style.removeProperty(gradientToken(input.dataset.gradientColor!)));
+      tokenInputs.forEach((input) => root.style.removeProperty(input.dataset.tokenInput!));
+      gradientInputs.forEach((input) => root.style.removeProperty(gradientToken(input.dataset.gradientColor!)));
       const declarations = overrides();
-      declarations.forEach(line => { const [name, value] = line.slice(0, -1).split(/:\s*/); root.style.setProperty(name, value); });
+      declarations.forEach((line) => {
+        const [name, value] = line.slice(0, -1).split(/:\s*/);
+        root.style.setProperty(name, value);
+      });
       syncGradientInputs();
       document.body.classList.toggle('docs-gradient', gradientToggle.checked);
       const notes = gradientToggle.checked ? '\n/* the gradient also needs $background-gradient: true in Sass */' : '';
       output.textContent = (declarations.length ? `:root {\n  ${declarations.join('\n  ')}\n}` : '/* defaults, nothing overridden */') + notes;
     };
     brandInput.addEventListener('input', apply);
-    tokenInputs.forEach(input => input.addEventListener('input', apply));
+    tokenInputs.forEach((input) => input.addEventListener('input', apply));
     gradientToggle.addEventListener('change', apply);
-    gradientInputs.forEach(input => input.addEventListener('input', () => { gradientCustom.add(input.dataset.gradientColor!); apply(); }));
-    document.querySelector('[data-gradient-reset]')?.addEventListener('click', () => { gradientCustom.clear(); apply(); });
-    document.querySelector('[data-brand-reset]')?.addEventListener('click', () => { brandInput.value = defaultBrand; tokenInputs.forEach(i => { i.value = ''; }); gradientCustom.clear(); gradientToggle.checked = false; apply(); });
-    document.querySelector<HTMLElement>('[data-brand-copy]')?.addEventListener('click', e => copy(output.textContent ?? '', e.currentTarget as HTMLElement));
+    gradientInputs.forEach((input) =>
+      input.addEventListener('input', () => {
+        gradientCustom.add(input.dataset.gradientColor!);
+        apply();
+      }),
+    );
+    document.querySelector('[data-gradient-reset]')?.addEventListener('click', () => {
+      gradientCustom.clear();
+      apply();
+    });
+    document.querySelector('[data-brand-reset]')?.addEventListener('click', () => {
+      brandInput.value = defaultBrand;
+      tokenInputs.forEach((i) => {
+        i.value = '';
+      });
+      gradientCustom.clear();
+      gradientToggle.checked = false;
+      apply();
+    });
+    document.querySelector<HTMLElement>('[data-brand-copy]')?.addEventListener('click', (e) => copy(output.textContent ?? '', e.currentTarget as HTMLElement));
     apply();
   </script>
 </Base>
