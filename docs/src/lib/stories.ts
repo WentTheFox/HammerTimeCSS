@@ -253,4 +253,10 @@ ${[24, 48, 96].map(size => `  <img class="avatar" style="--size: ${size}px" alt=
   </div>
 </div>`, notes: ["The demo overrides <code class=\"code-span\">position</code> to keep the popup in the flow, a real one is placed by your script or anchored."] },
   { id: 'loading-indicator', title: 'Loading indicator', description: 'An animated SVG clock, sized by its width and height and coloured by the current text colour. Also used inside the loading buttons.', html: `<div class="button-group separated">${[1, 2, 4].map(em => loadingIndicator.replace('width="1em" height="1em"', `width="${em}em" height="${em}em"`)).join('')}</div>` },
+  { id: 'card-forms', title: 'Card forms', description: 'Cards laid out in a wrapping row. Sections take the full width, and half each from the xl breakpoint.', html: `<div class="card-forms">
+${['Section one', 'Section two'].map(title => `  <section class="card-forms-section card">
+    <header class="card-header"><h3>${title}</h3></header>
+    <div class="form-control-wrap"><div class="form-control"><label class="form-control-label" for="card-forms-${title.split(' ')[1]}">Field</label><input id="card-forms-${title.split(' ')[1]}" class="input-field full-width" type="text"></div></div>
+  </section>`).join('\n')}
+</div>` },
 ];
