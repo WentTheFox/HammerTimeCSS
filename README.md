@@ -1,5 +1,8 @@
 # @went.tf/hammertime-css
 
+[![Release](https://github.com/WentTheFox/HammerTimeCSS/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/WentTheFox/HammerTimeCSS/actions/workflows/release.yml)
+[![npm version](https://img.shields.io/npm/v/@went.tf/hammertime-css)](https://www.npmjs.com/package/@went.tf/hammertime-css)
+
 The design of [HammerTime](https://hammertime.cyou) as an extensible, **HTML/CSS-only** framework.
 No JavaScript components are included, the stateful components only ship the styling hooks
 (`.visible`, `[open]`, `.is-open`, ...) that your own markup or script toggles.
