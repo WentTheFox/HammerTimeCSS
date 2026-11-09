@@ -223,4 +223,10 @@ ${[24, 48, 96].map(size => `  <img class="avatar" style="--size: ${size}px" alt=
   { id: 'progress', title: 'Progress', description: 'A track with a bar inside. The bar fills with the current text colour, set its width yourself.', html: `<div class="progress" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width: 25%"></div></div>
 <div class="progress" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width: 60%"></div></div>
 <div class="progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width: 100%"></div></div>` },
+  { id: 'input-field', title: 'Input field', description: 'The bare input, outside the form control wrappers: text, full width, invalid, disabled with a placeholder, and a colour input.', html: `<input class="input-field" type="text" value="Text input" aria-label="Text input">
+<input class="input-field full-width" type="text" value="Full width" aria-label="Full width input">
+<input class="input-field" type="email" value="not an email" aria-label="Invalid input" required>
+<input class="input-field" type="text" placeholder="Placeholder" aria-label="Placeholder input">
+<input class="input-field" type="text" value="Disabled" aria-label="Disabled input" disabled>
+<input class="input-field" type="color" value="#5865f2" aria-label="Colour input">` },
 ];
