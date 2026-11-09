@@ -239,4 +239,11 @@ ${[24, 48, 96].map(size => `  <img class="avatar" style="--size: ${size}px" alt=
   <a class="nav-link" href="#nav">Another link</a>
   <a class="nav-link" href="#nav">And another</a>
 </nav>` },
+  { id: 'header', title: 'Header', description: 'A bar with a brand and room for content on the other side. It is sticky by default; .non-stick makes it absolute and pushes its following siblings down. This page uses it as its own header.', html: `<div style="position: relative; overflow: hidden; border-radius: .5rem">
+  <div class="header non-stick">
+    <div class="header-brand"><span class="header-brand-text">Brand</span></div>
+    <nav class="nav" style="flex-flow: row nowrap"><a class="nav-link current" href="#header">Home</a><a class="nav-link" href="#header">About</a></nav>
+  </div>
+  <p style="padding: 1rem">Content below the header.</p>
+</div>` },
 ];
