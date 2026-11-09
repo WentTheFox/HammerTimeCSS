@@ -230,4 +230,8 @@ ${[24, 48, 96].map(size => `  <img class="avatar" style="--size: ${size}px" alt=
 <input class="input-field" type="text" value="Disabled" aria-label="Disabled input" disabled>
 <input class="input-field" type="color" value="#5865f2" aria-label="Colour input">` },
   { id: 'code-span', title: 'Code span', description: 'Inline code. .base-font keeps the surrounding font, .small shrinks it.', html: `<p>Regular <code class="code-span">code-span</code>, <code class="code-span base-font">base-font</code> and <code class="code-span small">small</code> variants.</p>` },
+  { id: 'copyable-text', title: 'Copyable text', description: 'A button joined to a selectable value. The copying is up to your script, the docs page wires it up with a data attribute.', html: `<div class="copyable-text">
+  <button type="button" class="button button-primary icon-only" aria-label="Copy to clipboard" title="Copy to clipboard"><span class="button-content"><span class="button-icon">${icon('fontawesome', 'clipboard')}</span></span></button>
+  <code class="code-span copyable-text-data">--ht-brand</code>
+</div>` },
 ];
