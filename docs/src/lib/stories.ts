@@ -234,4 +234,9 @@ ${[24, 48, 96].map(size => `  <img class="avatar" style="--size: ${size}px" alt=
   <button type="button" class="button button-primary icon-only" aria-label="Copy to clipboard" title="Copy to clipboard"><span class="button-content"><span class="button-icon">${icon('fontawesome', 'clipboard')}</span></span></button>
   <code class="code-span copyable-text-data">--ht-brand</code>
 </div>` },
+  { id: 'nav', title: 'Nav', description: 'A vertical list of links. .current marks the active one.', html: `<nav class="nav">
+  <a class="nav-link current" href="#nav">Current</a>
+  <a class="nav-link" href="#nav">Another link</a>
+  <a class="nav-link" href="#nav">And another</a>
+</nav>` },
 ];
