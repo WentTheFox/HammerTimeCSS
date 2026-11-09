@@ -116,7 +116,7 @@ const comboboxItem = (main: string, state = '', addon?: string, mark?: string) =
 };
 
 const combobox = (set: IconSet = 'fontawesome') => `<div class="form-control-group vertical">
-  <div class="form-control-wrap">
+  <div class="form-control-wrap has-combobox">
     <div class="form-control">
       <label class="form-control-label" for="combobox-closed">Closed (select only)</label>
       <div class="form-control-select form-control-combobox full-width">
@@ -125,7 +125,7 @@ const combobox = (set: IconSet = 'fontawesome') => `<div class="form-control-gro
       </div>
     </div>
   </div>
-  <div class="form-control-wrap">
+  <div class="form-control-wrap has-combobox">
     <div class="form-control">
       <label class="form-control-label" for="combobox-open">Open (typing allowed)</label>
       <div class="form-control-select form-control-combobox allow-typing suggestions-open has-suggestions full-width">
@@ -194,7 +194,7 @@ export const stories: Story[] = [
 ${comboboxStacking(false)}
 ${comboboxStacking(true)}
 </div>`, notes: [
-    "Fix: add <code class=\"code-span\">.has-combobox</code> (it sets <code class=\"code-span\">z-index: unset</code>) to every flex or grid item that contains the combobox, up to the first one that is not stacked against its siblings. <code class=\"code-span\">.form-control-wrap</code> items and the combobox itself get this automatically through <code class=\"code-span\">:has()</code>, your own wrappers need the class. Setting a z-index above the following siblings, such as <code class=\"code-span\">var(--ht-z-index-combobox)</code>, works too.",
+    "Fix: add <code class=\"code-span\">.has-combobox</code> (it sets <code class=\"code-span\">z-index: unset</code>) to every flex or grid item that contains the combobox, up to the first one that is not stacked against its siblings. The combobox itself needs nothing, but its ancestors do, <code class=\"code-span\">.form-control-wrap</code> included (earlier versions did this for it with a <code class=\"code-span\">:has()</code> rule, so add the class when upgrading). Setting a z-index above the following siblings, such as <code class=\"code-span\">var(--ht-z-index-combobox)</code>, works too.",
     "Other things that create a stacking context on an ancestor do the same: <code class=\"code-span\">opacity</code> below 1 (the <code class=\"code-span\">.disabled</code> wrapper has it), <code class=\"code-span\">transform</code>, <code class=\"code-span\">filter</code>, <code class=\"code-span\">isolation: isolate</code> and <code class=\"code-span\">overflow</code> clipping, which also cuts the list off. Check the ancestors in dev tools if the list is hidden.",
   ] },
   { id: 'forms-readonly', title: 'Forms: readonly', description: 'The same controls with the readonly attribute.', html: formFields('readonly') },
