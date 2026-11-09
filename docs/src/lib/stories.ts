@@ -217,4 +217,7 @@ export const stories: Story[] = [
     <div class="accordion-item-body"><p>${lorem}</p></div>
   </details>
 </div>`, notes: ["The reset strips the disclosure marker from <code class=\"code-span\">&lt;summary&gt;</code>, see the note on the collapsible story. The <code class=\"code-span\">summary</code> styling in this demo comes from the docs page, not the framework."] },
+  { id: 'avatar', title: 'Avatar', description: 'A circular image sized by the --size custom property.', html: `<div class="button-group separated">
+${[24, 48, 96].map(size => `  <img class="avatar" style="--size: ${size}px" alt="${size}px avatar" src="data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#5865f2"/><circle cx="32" cy="26" r="11" fill="#fff"/><path d="M10 64c2-16 12-22 22-22s20 6 22 22z" fill="#fff"/></svg>')}">`).join('\n')}
+</div>` },
 ];
