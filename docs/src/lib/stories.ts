@@ -246,4 +246,10 @@ ${[24, 48, 96].map(size => `  <img class="avatar" style="--size: ${size}px" alt=
   </div>
   <p style="padding: 1rem">Content below the header.</p>
 </div>` },
+  { id: 'popup', title: 'Popup', description: 'A floating panel. Add .visible to show it (a hidden popup is yours to hide, the class forces display: block), .wide for a wider one and .allow-overflow to let children escape. It is positioned absolutely, with an anchor on browsers that support it (.has-anchor and --position-anchor-name); below the md breakpoint it is meant to be a modal, and the page stops scrolling while a <dialog class="popup"> is open.', html: `<div style="position: relative; min-height: 8rem">
+  <div class="popup visible" style="position: relative">
+    <p>Popup contents.</p>
+    <p>${lorem}</p>
+  </div>
+</div>`, notes: ["The demo overrides <code class=\"code-span\">position</code> to keep the popup in the flow, a real one is placed by your script or anchored."] },
 ];
