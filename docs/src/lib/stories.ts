@@ -105,6 +105,46 @@ const formFields = (state: 'regular' | 'readonly' | 'disabled', set: IconSet = '
 </div>`;
 };
 
+const comboboxItem = (main: string, state = '', addon?: string, mark?: string) => {
+  const text = mark ? main.replace(mark, `<mark>${mark}</mark>`) : main;
+  return `      <div class="combobox-suggestion-item${state}" role="option">
+        <div class="combobox-suggestion-item-label">
+          <span class="combobox-suggestion-item-text"><span class="combobox-suggestion-item-main-text">${text}</span></span>${addon ? `
+          <span class="combobox-suggestion-item-addon">${addon}</span>` : ''}
+        </div>
+      </div>`;
+};
+
+const combobox = (set: IconSet = 'fontawesome') => `<div class="form-control-group vertical">
+  <div class="form-control-wrap">
+    <div class="form-control">
+      <label class="form-control-label" for="combobox-closed">Closed (select only)</label>
+      <div class="form-control-select form-control-combobox full-width">
+        <input id="combobox-closed" class="form-select-input input-field" type="text" role="combobox" aria-expanded="false" value="Europe/Warsaw" readonly>
+        <span class="form-select-icon">${icon(set, 'chevron-down')}</span>
+      </div>
+    </div>
+  </div>
+  <div class="form-control-wrap">
+    <div class="form-control">
+      <label class="form-control-label" for="combobox-open">Open (typing allowed)</label>
+      <div class="form-control-select form-control-combobox allow-typing suggestions-open has-suggestions full-width">
+        <input id="combobox-open" class="form-select-input input-field" type="text" role="combobox" aria-expanded="true" value="eu">
+        <span class="form-select-icon">${icon(set, 'chevron-down')}</span>
+        <div class="combobox-suggestions" role="listbox">
+          <div class="combobox-suggestion-header combobox-suggestion-header-overlay">Europe</div>
+${comboboxItem('Europe/London', '', 'UTC+0', 'Eu')}
+${comboboxItem('Europe/Warsaw', ' selected', 'UTC+1', 'Eu')}
+${comboboxItem('Europe/Berlin', ' highlighted', 'UTC+1', 'Eu')}
+${comboboxItem('Europe/Helsinki', '', 'UTC+2', 'Eu')}
+          <div class="combobox-suggestion-header">Other</div>
+${comboboxItem('Africa/Cairo', '', 'UTC+2')}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`;
+
 const badgeColors = [undefined, 'green', 'blue', 'cyan', 'purple', 'red', 'yellow', 'muted'];
 const badgeGroup = (prefix?: string, suffix?: string) => `<span class="badge-group">
 ${badgeColors.map(color => {
@@ -128,6 +168,11 @@ export const stories: Story[] = [
   { id: 'forms-regular', title: 'Forms: regular', description: 'Input, select, checkbox and radio.', html: formFields('regular'), notes: [
     "Icons are slots: the framework ships none. <code class=\"code-span\">.form-checkbox-check-icon</code> and <code class=\"code-span\">.form-select-icon</code> are positioned for a fixed-width icon (about 1.25em wide, 1em tall, such as Font Awesome's <code class=\"code-span\">fa-fw</code>), a text glyph will not line up.",
     "Radio: before v0.1.2 any whitespace between <code class=\"code-span\">.form-radio-input-wrap</code> and <code class=\"code-span\">.form-radio-label</code> pushed the label out. From v0.1.2 the control is a flex row and the markup may be formatted freely.",
+  ] },
+  { id: 'combobox', title: 'Forms: combobox', description: 'A select-like input with a suggestion list. The framework only styles it: filtering, keyboard handling and toggling the state classes (.suggestions-open, .has-suggestions, .allow-typing, and .selected / .highlighted on items) is up to your script. Both controls here are static; the second one is shown open, with a selected item, a highlighted item, matches wrapped in <mark> and an addon.', html: combobox(), notes: [
+    "The suggestion list is absolutely positioned under the control and overlays what follows it, so leave room for it in your layout. Matching items (those containing a <code class=\"code-span\">&lt;mark&gt;</code>) are sorted before the rest.",
+    "<code class=\"code-span\">.allow-typing</code> is what makes the input editable-looking: without it the input gets a default cursor and no text selection. Put <code class=\"code-span\">.combobox-suggestion-header-overlay</code> on a header to keep it sticky while the list scrolls.",
+    "Addons: <code class=\"code-span\">.addon-mode-dynamic.label-truncated</code> on an item moves the addon into the corner on hover to give a truncated label the full width.",
   ] },
   { id: 'forms-readonly', title: 'Forms: readonly', description: 'The same controls with the readonly attribute.', html: formFields('readonly') },
   { id: 'forms-disabled', title: 'Forms: disabled', description: 'The same controls disabled.', html: formFields('disabled') },
