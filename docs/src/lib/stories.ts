@@ -120,7 +120,7 @@ const combobox = (set: IconSet = 'fontawesome') => `<div class="form-control-gro
     <div class="form-control">
       <label class="form-control-label" for="combobox-closed">Closed (select only)</label>
       <div class="form-control-select form-control-combobox full-width">
-        <input id="combobox-closed" class="form-select-input input-field" type="text" role="combobox" aria-expanded="false" value="Europe/Warsaw" readonly>
+        <input id="combobox-closed" class="form-select-input input-field full-width" type="text" role="combobox" aria-expanded="false" value="Europe/Warsaw" readonly>
         <span class="form-select-icon">${icon(set, 'chevron-down')}</span>
       </div>
     </div>
@@ -129,7 +129,7 @@ const combobox = (set: IconSet = 'fontawesome') => `<div class="form-control-gro
     <div class="form-control">
       <label class="form-control-label" for="combobox-open">Open (typing allowed)</label>
       <div class="form-control-select form-control-combobox allow-typing suggestions-open has-suggestions full-width">
-        <input id="combobox-open" class="form-select-input input-field" type="text" role="combobox" aria-expanded="true" value="eu">
+        <input id="combobox-open" class="form-select-input input-field full-width" type="text" role="combobox" aria-expanded="true" value="eu">
         <span class="form-select-icon">${icon(set, 'chevron-down')}</span>
         <div class="combobox-suggestions" role="listbox">
           <div class="combobox-suggestion-header combobox-suggestion-header-overlay">Europe</div>
@@ -149,7 +149,7 @@ ${comboboxItem('America/Argentina/Buenos_Aires (Argentina Standard Time)', ' add
 const comboboxStacking = (fixed: boolean, set: IconSet = 'fontawesome') => `<div style="display: flex; flex-flow: column nowrap; gap: .5rem">
   <div${fixed ? ' class="has-combobox"' : ''}>
     <div class="form-control-select form-control-combobox allow-typing suggestions-open has-suggestions full-width">
-      <input class="form-select-input input-field" type="text" role="combobox" aria-expanded="true" aria-label="${fixed ? 'Fixed' : 'Broken'} combobox" value="${fixed ? 'Fixed' : 'Broken'}">
+      <input class="form-select-input input-field full-width" type="text" role="combobox" aria-expanded="true" aria-label="${fixed ? 'Fixed' : 'Broken'} combobox" value="${fixed ? 'Fixed' : 'Broken'}">
       <span class="form-select-icon">${icon(set, 'chevron-down')}</span>
       <div class="combobox-suggestions" role="listbox">
 ${comboboxItem('First suggestion')}
