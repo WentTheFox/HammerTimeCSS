@@ -3,6 +3,8 @@
 .docs-toolbar { display: flex; flex-flow: row wrap; gap: .5rem; align-items: center; }
 .docs-toolbar-label { font-weight: bold; }
 .docs-preview:has(.combobox-suggestions) { padding-block-end: 20rem; }
+/* The main combobox demo has a long list (max-height is 35vh, so it can be taller than the generic padding) */
+#combobox .docs-preview { padding-block-end: 28rem; }
 .docs-preview { padding: 1rem; border: 1px dashed var(--ht-color-card-border, currentColor); border-radius: .5rem; display: flex; flex-flow: column; gap: .5rem; }
 .docs-source { overflow: auto; max-height: 24rem; padding: .75rem; border-radius: .5rem; background: rgb(0 0 0 / .15); white-space: pre; font-family: var(--ht-value-font-family-mono); font-size: .8em; }
 .docs-story-actions { display: flex; gap: .5rem; margin-block: .5rem; }
