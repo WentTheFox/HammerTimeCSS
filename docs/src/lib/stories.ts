@@ -204,4 +204,17 @@ export const stories: Story[] = [
   <header class="card-header"><h2>Card title</h2></header>
   <p>${lorem}</p>
 </article>` },
+  { id: 'accordion', title: 'Accordion', description: 'A column of items with a padded body. The framework styles the layout and the body only: the header and the toggling are yours, here native <details> elements are used.', html: `<div class="accordion">
+  <details class="accordion-item" open>
+    <summary>First item</summary>
+    <div class="accordion-item-body">
+      <p>${lorem}</p>
+      <p>Paragraphs in the body get spacing between them, and links use the content link style: <a href="#accordion">a link</a>.</p>
+    </div>
+  </details>
+  <details class="accordion-item">
+    <summary>Second item</summary>
+    <div class="accordion-item-body"><p>${lorem}</p></div>
+  </details>
+</div>`, notes: ["The reset strips the disclosure marker from <code class=\"code-span\">&lt;summary&gt;</code>, see the note on the collapsible story. The <code class=\"code-span\">summary</code> styling in this demo comes from the docs page, not the framework."] },
 ];
