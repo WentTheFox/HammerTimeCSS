@@ -14,6 +14,20 @@
     --spacing: calc(#{design.app-value('alert-spacing')} * 0.5);
   }
 
+  // Runs the title and text together on one line, like a sentence. Combine with .compact for tighter spacing.
+  // :not(:empty) keeps the base rules that hide empty parts working.
+  &.compact-inline .alert-content {
+    > .alert-title:not(:empty),
+    > .alert-text:not(:empty) {
+      display: inline;
+      margin-bottom: 0;
+    }
+
+    > .alert-title:not(:empty) {
+      margin-inline-end: 0.25em;
+    }
+  }
+
   .alert-icon:empty {
     display: none;
   }

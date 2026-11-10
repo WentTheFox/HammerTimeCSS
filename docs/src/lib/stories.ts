@@ -38,6 +38,12 @@ const alerts = `<div class="alert info">
     <div class="alert-text">Compact alert text</div>
     <div class="alert-actions"><button type="button" class="button"><span class="button-content"><span class="button-text">Compact alert action</span></span></button></div>
   </div>
+</div>
+<div class="alert compact compact-inline info">
+  <div class="alert-content">
+    <div class="alert-title">Compact inline title</div>
+    <div class="alert-text">Compact inline text runs on the same line as the title.</div>
+  </div>
 </div>`;
 
 const loadingIndicator =
