@@ -44,6 +44,30 @@ const alerts = `<div class="alert info">
     <div class="alert-title">Compact inline title</div>
     <div class="alert-text">Compact inline text runs on the same line as the title.</div>
   </div>
+</div>
+<div class="alert compact compact-inline info">
+  <div class="alert-icon">i</div>
+  <div class="alert-content">
+    <div class="alert-title">Compact inline with a close button</div>
+    <div class="alert-text">The taller button stretches the row, the icon and text stay centred next to it.</div>
+  </div>
+  <div class="alert-close"><button type="button" class="button icon-only" aria-label="Close alert"><span class="button-content"><span class="button-icon">${icon('fontawesome', 'close')}</span></span></button></div>
+</div>
+<div class="alert compact compact-inline info" style="max-width: 24rem">
+  <div class="alert-icon">i</div>
+  <div class="alert-content">
+    <div class="alert-title">Narrow container.</div>
+    <div class="alert-text">When the inline text wraps onto several lines everything stays vertically centred beside the close button.</div>
+  </div>
+  <div class="alert-close"><button type="button" class="button icon-only" aria-label="Close alert"><span class="button-content"><span class="button-icon">${icon('fontawesome', 'close')}</span></span></button></div>
+</div>
+<div class="alert info">
+  <div class="alert-icon">i</div>
+  <div class="alert-content">
+    <div class="alert-title">Regular alert with a close button</div>
+    <div class="alert-text">${lorem}</div>
+  </div>
+  <div class="alert-close"><button type="button" class="button icon-only" aria-label="Close alert"><span class="button-content"><span class="button-icon">${icon('fontawesome', 'close')}</span></span></button></div>
 </div>`;
 
 const loadingIndicator =
@@ -193,7 +217,15 @@ ${buttonRow(set, true)('primary')}`,
 });
 
 export const stories: Story[] = [
-  { id: 'alerts', title: 'Alerts', description: 'Info and warning variants, plus a compact layout with actions.', html: alerts },
+  {
+    id: 'alerts',
+    title: 'Alerts',
+    description: 'Info and warning variants, plus compact layouts with actions and a close button.',
+    html: alerts,
+    notes: [
+      'Close button: put a <code class="code-span">.alert-close</code> element with the button after <code class="code-span">.alert-content</code>. Compact alerts (<code class="code-span">.compact</code>, <code class="code-span">.compact-inline</code>) centre their parts vertically, because the button is taller than the compact text and would otherwise leave the text pinned to the top.',
+    ],
+  },
   {
     id: 'buttons',
     title: 'Buttons',

@@ -12,6 +12,14 @@
 
   &.compact {
     --spacing: calc(#{design.app-value('alert-spacing')} * 0.5);
+    // A close button (.alert-close) is taller than a line or two of compact text and stretches the row: centre the parts
+    // instead of pinning the text to the top edge.
+    align-items: center;
+  }
+
+  // Keeps the close button at its own size next to long text
+  .alert-close {
+    flex: none;
   }
 
   // Runs the title and text together on one line, like a sentence. Combine with .compact for tighter spacing.

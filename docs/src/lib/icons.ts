@@ -10,7 +10,7 @@ import * as fontAwesome from '@fortawesome/free-solid-svg-icons';
  * - Lucide: https://lucide.dev, ISC license
  */
 export type IconSet = 'fontawesome' | 'lucide';
-export type IconName = 'check' | 'chevron-down' | 'clipboard' | 'spinner';
+export type IconName = 'check' | 'chevron-down' | 'clipboard' | 'close' | 'spinner';
 
 export const iconSetLabels: Record<IconSet, string> = {
   fontawesome: 'Font Awesome Free',
@@ -21,12 +21,13 @@ const faIcons: Record<IconName, { icon: [number, number, unknown, unknown, strin
   check: fontAwesome.faCheck as never,
   'chevron-down': fontAwesome.faChevronDown as never,
   clipboard: fontAwesome.faClipboard as never,
+  close: fontAwesome.faXmark as never,
   spinner: fontAwesome.faSpinner as never,
 };
 
 // The build runs from docs/
-// Lucide has no 'spinner', its equivalent is 'loader-circle'
-const lucideFiles: Partial<Record<IconName, string>> = { spinner: 'loader-circle' };
+// Lucide has no 'spinner' and no 'close', its equivalents are 'loader-circle' and 'x'
+const lucideFiles: Partial<Record<IconName, string>> = { spinner: 'loader-circle', close: 'x' };
 const lucideDir = resolve(process.cwd(), 'node_modules/lucide-static/icons');
 
 /** Returns an inline `<svg>` sized to the text, `fixedWidth` mirrors Font Awesome's fa-fw */
